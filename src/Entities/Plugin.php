@@ -43,7 +43,10 @@ abstract class Plugin implements PluginInterface
         return $this->_config;
     }
 
-    public function getConfigOption($option): array
+    /**
+     * @return mixed|null
+     */
+    public function getConfigOption($option)
     {
         if (array_key_exists($option, $this->_config)) {
             return $this->_config[$option];
