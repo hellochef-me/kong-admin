@@ -16,11 +16,11 @@ class Services extends Base
     }
 
     /**
-     * @param Route $route
+     * @param Service $service
      * @param Plugin $plugin
      */
-    public function enablePlugin($route, $plugin): Response
+    public function enablePlugin($service, $plugin): Response
     {
-        return $this->post("services/{$route->getName()}/plugins", $plugin->getData());
+        return $this->post("services/{$service->getName()}/plugins", $plugin->getData());
     }
 }
