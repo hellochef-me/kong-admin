@@ -40,4 +40,15 @@ class Consumers extends Base
             'ttl' => $ttl,
         ])->json();
     }
+
+    /**
+     * @param string $group
+     * @return mixed
+     */
+    public function addACL($identifier, $group)
+    {
+        return $this->post("consumers/{$identifier}/acls", [
+            'group' => $group,
+        ])->json();
+    }
 }
