@@ -14,4 +14,13 @@ class Services extends Base
     {
         return $this->post('services', $service->getData());
     }
+
+    /**
+     * @param Route $route
+     * @param Plugin $plugin
+     */
+    public function enablePlugin($route, $plugin): Response
+    {
+        return $this->post("services/{$route->getName()}/plugins", $plugin->getData());
+    }
 }
