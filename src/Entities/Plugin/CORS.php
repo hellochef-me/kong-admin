@@ -14,7 +14,9 @@ class CORS extends Plugin
     protected $_name = 'cors';
 
     protected $_config = [
-        'origins' => '*',
+        'origins' => [
+            '*',
+        ],
         'headers' => [
             'Accept',
             'Accept-Version',
@@ -25,9 +27,11 @@ class CORS extends Plugin
             'X-Auth-Token',
             'apikey',
         ],
-        'exposed_headers' => 'Content-Disposition',
-        'credentials' => 'true',
-        'max_age' => '3600',
-        'preflight_continue' => 'false',
+        'exposed_headers' => [
+            'Content-Disposition',
+        ],
+        'credentials' => true,
+        'max_age' => 3600,
+        'preflight_continue' => false,
     ];
 }
