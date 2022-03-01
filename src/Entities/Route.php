@@ -13,6 +13,7 @@ class Route
     protected $_methods;
     protected $_paths;
     protected $_service;
+    protected $_regexPriority = 0;
 
     public function __construct()
     {
@@ -67,6 +68,18 @@ class Route
         return $this;
     }
 
+    public function getRegexPriority(): int
+    {
+        return $this->_regexPriority;
+    }
+
+    public function setRegexPriority($regexPriority): Route
+    {
+        $this->_regexPriority = $regexPriority;
+
+        return $this;
+    }
+
     public function getData(): array
     {
         return [
@@ -74,6 +87,7 @@ class Route
             'methods' => $this->getMethods(),
             'paths' => $this->getPaths(),
             'service' => $this->getService()->getData(),
+            'regex_priority' => $this->getRegexPriority(),
             'strip_path' => false,
         ];
     }
