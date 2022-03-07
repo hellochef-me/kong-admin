@@ -11,6 +11,7 @@ class Route
 {
     protected $_name;
     protected $_methods;
+    protected $_hosts;
     protected $_paths;
     protected $_service;
     protected $_regexPriority = 0;
@@ -40,6 +41,18 @@ class Route
     public function setMethods($methods): Route
     {
         $this->_methods = $methods;
+
+        return $this;
+    }
+
+    public function getHosts(): array
+    {
+        return $this->_hosts;
+    }
+
+    public function setHosts($hosts): Route
+    {
+        $this->_hosts = $hosts;
 
         return $this;
     }
@@ -85,6 +98,7 @@ class Route
         return [
             'name' => $this->getName(),
             'methods' => $this->getMethods(),
+            'hosts' => $this->getHosts(),
             'paths' => $this->getPaths(),
             'service' => $this->getService()->getData(),
             'regex_priority' => $this->getRegexPriority(),
