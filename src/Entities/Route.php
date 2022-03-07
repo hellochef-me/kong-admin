@@ -52,7 +52,18 @@ class Route
 
     public function setHosts($hosts): Route
     {
-        $this->_hosts = $hosts;
+        if (! is_array($hosts)) {
+            $hosts = [$hosts];
+        }
+
+        /**
+         * If host is https://www.example.com, then set it as www.example.com
+         * If host is www.example.com, then set it as is
+         */
+        foreach ($hosts as $host) {
+            $host = parse_url($host);
+            $this->_hosts[] = $host['host'] ?? $host['path'];
+        }
 
         return $this;
     }
