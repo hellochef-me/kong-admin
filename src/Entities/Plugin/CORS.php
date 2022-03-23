@@ -34,4 +34,17 @@ class CORS extends Plugin
         'max_age' => 3600,
         'preflight_continue' => false,
     ];
+
+    /**
+     * @param array
+     * @return this
+     */
+    public function addHeaders($headers = [])
+    {
+        foreach ($headers as $header) {
+            $this->_config['headers'][] = $header;
+        }
+
+        return $this;
+    }
 }
