@@ -2,6 +2,7 @@
 
 namespace Hiteshpachpor\KongAdmin\Api;
 
+use Hiteshpachpor\KongAdmin\Entities\Plugin;
 use Hiteshpachpor\KongAdmin\Entities\Service;
 use Illuminate\Http\Client\Response;
 
