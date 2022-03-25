@@ -15,6 +15,7 @@ class Route
     protected $_paths;
     protected $_service;
     protected $_regexPriority = 0;
+    protected $_preserveHost = true;
 
     public function __construct()
     {
@@ -104,6 +105,18 @@ class Route
         return $this;
     }
 
+    public function getPreserveHost(): bool
+    {
+        return $this->_preserveHost;
+    }
+
+    public function setPreserveHost($preserveHost): Route
+    {
+        $this->_preserveHost = $preserveHost;
+
+        return $this;
+    }
+
     public function getData(): array
     {
         return [
@@ -114,6 +127,7 @@ class Route
             'service' => $this->getService()->getData(),
             'regex_priority' => $this->getRegexPriority(),
             'strip_path' => false,
+            'preserve_host' => $this->getPreserveHost(),
         ];
     }
 }
