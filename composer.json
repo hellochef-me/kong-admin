@@ -1,26 +1,27 @@
 {
-    "name": "hiteshpachpor/kong-admin",
-    "description": "A PHP client to interact with Kong's Admin API",
-    "type": "library",
-    "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "Hiteshpachpor\\KongAdmin\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "Hitesh Pachpor",
-            "email": "hiteshspac@gmail.com"
-        }
-    ],
-    "require": {
-        "illuminate/console": "^8.0|^9.0",
-        "illuminate/http": "^8.0|^9.0",
-        "illuminate/log": "^8.0|^9.0"
-    },
-    "require-dev": {
-        "mockery/mockery": "^1.5",
-        "fakerphp/faker": "^1.19"
-    }
+	"name": "hiteshpachpor/kong-admin",
+	"description": "A PHP client to interact with Kong's Admin API",
+	"type": "library",
+	"license": "MIT",
+	"autoload": {
+		"psr-4": {
+			"Hiteshpachpor\\KongAdmin\\": "src/"
+		}
+	},
+	"authors": [
+		{
+			"name": "Hitesh Pachpor",
+			"email": "hiteshspac@gmail.com"
+		}
+	],
+	"require": {
+		"illuminate/console": "^8.0|^9.0",
+		"illuminate/http": "^8.0|^9.0",
+		"illuminate/log": "^8.0|^9.0"
+	},
+	"require-dev": {
+		"mockery/mockery": "^1.5",
+		"fakerphp/faker": "^1.19"
+	},
+	"version": "0.0.0"
 }
