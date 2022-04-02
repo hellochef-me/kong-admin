@@ -24,7 +24,13 @@ class KongClient
 
     public function getBaseUrl(): string
     {
-        return config('services.kong.admin_url');
+        $url = config('services.kong.admin_url');
+
+        if (empty($url)) {
+            throw new \Exception("Kong admin url is not set. Please set it on the path 'services.kong.admin_url'.", 1);
+        }
+
+        return $url;
     }
 
     /**

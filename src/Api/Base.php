@@ -29,7 +29,20 @@ class Base
 
     /**
      * @param string $path
-     * @param string $payload
+     * @param string|null $payload
+     */
+    protected function get($path, $payload = ''): Response
+    {
+        return $this->_client->send(
+            Request::METHOD_GET,
+            $path,
+            $payload
+        );
+    }
+
+    /**
+     * @param string $path
+     * @param array|null $payload
      */
     protected function post($path, $payload = null): Response
     {
@@ -42,7 +55,7 @@ class Base
 
     /**
      * @param string $path
-     * @param string $payload
+     * @param array|null $payload
      */
     protected function patch($path, $payload): Response
     {
@@ -50,6 +63,18 @@ class Base
             Request::METHOD_PATCH,
             $path,
             $this->formatPayload($payload)
+        );
+    }
+
+    /**
+     * @param string $path
+     */
+    protected function delete($path): Response
+    {
+        return $this->_client->send(
+            Request::METHOD_DELETE,
+            $path,
+            ''
         );
     }
 }

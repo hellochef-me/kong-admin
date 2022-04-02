@@ -4,6 +4,7 @@ namespace Hiteshpachpor\KongAdmin\Api;
 
 use Hiteshpachpor\KongAdmin\Entities\Plugin;
 use Hiteshpachpor\KongAdmin\Entities\Route;
+use Hiteshpachpor\KongAdmin\Entities\Service;
 use Illuminate\Http\Client\Response;
 
 class Routes extends Base
@@ -22,6 +23,41 @@ class Routes extends Base
     public function update($route): Response
     {
         return $this->patch("routes/{$route->getName()}", $route->getData());
+    }
+
+    /**
+     * @param Route $route
+     */
+    public function show($route): Response
+    {
+        return $this->get("routes/{$route->getName()}");
+    }
+
+    /**
+     * @param Route $route
+     * @param Service|null $service
+     */
+    public function drop($route, $service = null): Response
+    {
+        $url = "routes/{$route->getName()}";
+
+        if ($service) {
+            $url = "services/{$service->getName()}/{$url}";
+        }
+
+        return $this->delete($url);
+    }
+
+    /**
+     * @param Service $service
+     * @param string|null $offset
+     */
+    public function list($service, $offset = null): Response
+    {
+        $base = "services/{$service->getName()}/routes";
+        $url = $offset ? "{$base}?offset={$offset}" : $base;
+
+        return $this->get($url);
     }
 
     /**
