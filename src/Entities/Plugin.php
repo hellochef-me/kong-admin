@@ -12,6 +12,11 @@ use Hiteshpachpor\KongAdmin\Interfaces\PluginInterface;
 abstract class Plugin implements PluginInterface
 {
     /**
+     * Id of the plugin.
+     */
+    protected $_id;
+
+    /**
      * Name of the plugin e.g. `key-auth`, `acl`.
      */
     protected $_name;
@@ -24,6 +29,18 @@ abstract class Plugin implements PluginInterface
     public function __construct($config = [])
     {
         $this->setConfig($config);
+    }
+
+    public function getId(): null|string
+    {
+        return $this->_id;
+    }
+
+    public function setId($id): Plugin
+    {
+        $this->_id = $id;
+
+        return $this;
     }
 
     public function getName(): string

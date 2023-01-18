@@ -6,6 +6,10 @@ use Hiteshpachpor\KongAdmin\Entities\Plugin;
 
 interface PluginInterface
 {
+    public function getId(): null|string;
+
+    public function setId($id): Plugin;
+
     public function getName(): string;
 
     public function setName($name): Plugin;

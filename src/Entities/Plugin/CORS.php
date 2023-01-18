@@ -47,4 +47,17 @@ class CORS extends Plugin
 
         return $this;
     }
+
+    /**
+     * @param array
+     * @return this
+     */
+    public function addExposedHeaders($headers = [])
+    {
+        foreach ($headers as $header) {
+            $this->_config['exposed_headers'][] = $header;
+        }
+
+        return $this;
+    }
 }
