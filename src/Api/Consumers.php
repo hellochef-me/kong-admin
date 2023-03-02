@@ -58,7 +58,7 @@ class Consumers extends Base
      */
     public function deleteACL($identifier, $group)
     {
-        $this->delete("consumers/{$identifier}/acls/$group")->json();
+        $this->delete("consumers/{$identifier}/acls/{$group}")->json();
     }
 
     /**
