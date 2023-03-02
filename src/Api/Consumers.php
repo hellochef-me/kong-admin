@@ -51,4 +51,21 @@ class Consumers extends Base
             'group' => $group,
         ])->json();
     }
+
+    /**
+     * @param string $group
+     * @return void
+     */
+    public function deleteACL($identifier, $group)
+    {
+        $this->delete("consumers/{$identifier}/acls/{$group}")->json();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getACLs($identifier, $resultSize = 100)
+    {
+        return $this->get("consumers/{$identifier}/acls?size={$resultSize}")->json();
+    }
 }

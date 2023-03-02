@@ -11,7 +11,8 @@ trait MockConsumer
     public function mockKongConsumer()
     {
         $this->mock(Consumers::class, function (MockInterface $mock) {
-            $mock->shouldReceive('create', 'update', 'addACL')->zeroOrMoreTimes()->andReturn([]);
+            $mock->shouldReceive('create', 'update', 'addACL', 'getACLs')->zeroOrMoreTimes()->andReturn([]);
+            $mock->shouldReceive('deleteACL')->zeroOrMoreTimes();
 
             $mock->shouldReceive('generateApiKey')
                 ->zeroOrMoreTimes()
