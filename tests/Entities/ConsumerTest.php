@@ -39,12 +39,12 @@ class ConsumerTest extends TestCase
     {
         $this->assertNull($this->consumer->getTags());
 
-        $this->consumer->setTags(['tag1','tag2']);
-        $this->assertEquals(['tag1','tag2'], $this->consumer->getTags());
+        $this->consumer->setTags(['tag1', 'tag2']);
+        $this->assertEquals(['tag1', 'tag2'], $this->consumer->getTags());
     }
 
     /** @test */
-    public function consumer_data(): void
+    public function consumer_route_data(): void
     {
         $this->consumer->setUsername('username');
         $this->consumer->setCustomId(4321);

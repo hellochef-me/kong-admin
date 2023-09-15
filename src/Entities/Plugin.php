@@ -12,7 +12,7 @@ use Hiteshpachpor\KongAdmin\Interfaces\PluginInterface;
 abstract class Plugin implements PluginInterface
 {
     /**
-     * Id of the plugin.
+     * ID of the plugin.
      */
     protected $_id;
 
