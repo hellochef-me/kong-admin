@@ -7,3 +7,9 @@ This repository lets you interact with Kong's Admin API.
 ```
 composer require hiteshpachpor/kong-admin
 ```
+
+## Testing
+
+    ```
+    composer test
+    ```
