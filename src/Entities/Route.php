@@ -51,6 +51,12 @@ class Route
         return $this->_hosts;
     }
 
+    /**
+     * Append host to the list of hosts.
+     *
+     * @param $hosts
+     * @return $this
+     */
     public function setHosts($hosts): Route
     {
         if (! is_array($hosts)) {
