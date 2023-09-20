@@ -1,6 +1,6 @@
 name: CI
 
-on: [push]
+on: [ push ]
 
 jobs:
   build-test:
@@ -13,11 +13,13 @@ jobs:
 
       - name: PHPUnit Tests
         uses: php-actions/phpunit@master
-        env:
-          TEST_NAME: Scarlett
         with:
           version: 9.6
           php_version: 8.1
+          php_extensions: xdebug
           bootstrap: vendor/autoload.php
           configuration: phpunit.xml
           args: --coverage-text
+          coverage_clover: "coverage/clover.xml"
+        env:
+          XDEBUG_MODE: coverage
