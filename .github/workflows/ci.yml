@@ -19,7 +19,14 @@ jobs:
           php_extensions: xdebug
           bootstrap: vendor/autoload.php
           configuration: phpunit.xml
-          args: --coverage-text
-          coverage_clover: "coverage/clover.xml"
+          args: --coverage-text clover.xml
+          coverage_clover: "clover.xml"
         env:
           XDEBUG_MODE: coverage
+
+      - name: Generate test coverage badge
+        uses: timkrase/phpunit-coverage-badge@v1.2.0
+        with:
+          coverage_badge_path: 'badge-coverage.svg'
+          push_badge: true
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
