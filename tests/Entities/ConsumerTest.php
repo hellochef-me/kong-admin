@@ -3,6 +3,7 @@
 namespace Hiteshpachpor\KongAdmin\Tests\Entities;
 
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Hiteshpachpor\KongAdmin\Entities\Consumer;
 
 class ConsumerTest extends TestCase
@@ -14,27 +15,27 @@ class ConsumerTest extends TestCase
         $this->consumer = new Consumer('username');
     }
 
-    /** @test */
+    #[Test]
     public function consumer_username_is_required(): void
     {
         $this->assertEquals('username', $this->consumer->getUsername());
     }
 
-    /** @test */
+    #[Test]
     public function consumer_username_can_be_set(): void
     {
         $this->consumer->setUsername('new username');
         $this->assertEquals('new username', $this->consumer->getUsername());
     }
 
-    /** @test */
+    #[Test]
     public function consumer_custom_id_can_be_set(): void
     {
         $this->consumer->setCustomId(1234);
         $this->assertEquals('1234', $this->consumer->getCustomId());
     }
 
-    /** @test */
+    #[Test]
     public function consumer_tags_can_be_set(): void
     {
         $this->assertNull($this->consumer->getTags());
@@ -43,7 +44,7 @@ class ConsumerTest extends TestCase
         $this->assertEquals(['tag1', 'tag2'], $this->consumer->getTags());
     }
 
-    /** @test */
+    #[Test]
     public function consumer_route_data(): void
     {
         $this->consumer->setUsername('username');

@@ -7,6 +7,7 @@ use Hiteshpachpor\KongAdmin\Api\Consumers;
 use Hiteshpachpor\KongAdmin\Api\Routes;
 use Hiteshpachpor\KongAdmin\Api\Services;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class KongTest extends TestCase
 {
@@ -25,19 +26,19 @@ class KongTest extends TestCase
         );
     }
 
-    /** @test */
+    #[Test]
     public function consumers_return_correct_object_type(): void
     {
         $this->assertInstanceOf(Consumers::class, $this->_kong->consumers());
     }
 
-    /** @test */
+    #[Test]
     public function routes_return_correct_object_type(): void
     {
         $this->assertInstanceOf(Routes::class, $this->_kong->routes());
     }
 
-    /** @test */
+    #[Test]
     public function services_return_correct_object_type(): void
     {
         $this->assertInstanceOf(Services::class, $this->_kong->services());

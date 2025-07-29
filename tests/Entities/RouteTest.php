@@ -3,6 +3,7 @@
 namespace Hiteshpachpor\KongAdmin\Tests\Entities;
 
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Hiteshpachpor\KongAdmin\Entities\Route;
 use Hiteshpachpor\KongAdmin\Entities\Service;
 
@@ -18,14 +19,14 @@ class RouteTest extends TestCase
         $this->route = new Route;
     }
 
-    /** @test */
+    #[Test]
     public function route_name_can_be_set(): void
     {
         $this->route->setName('route1');
         $this->assertEquals('route1', $this->route->getName());
     }
 
-    /** @test */
+    #[Test]
     public function route_methods_can_be_set(): void
     {
         $methods = ['GET', 'POST'];
@@ -34,7 +35,7 @@ class RouteTest extends TestCase
         $this->assertEquals($methods, $this->route->getMethods());
     }
 
-    /** @test */
+    #[Test]
     public function route_non_array_hosts_can_be_set(): void
     {
         $hosts = 'www.hellochef.me';
@@ -44,7 +45,7 @@ class RouteTest extends TestCase
         $this->assertSame($expected, $this->route->getHosts());
     }
 
-    /** @test */
+    #[Test]
     public function route_hosts_can_be_set(): void
     {
         $hosts = ['https://hellochef.com', 'www.hellochef.me'];
@@ -54,7 +55,7 @@ class RouteTest extends TestCase
         $this->assertSame($expected, $this->route->getHosts());
     }
 
-    /** @test */
+    #[Test]
     public function route_paths_can_be_set(): void
     {
         $paths = ['/recipes', '/recipes/1'];
@@ -63,7 +64,7 @@ class RouteTest extends TestCase
         $this->assertEquals($paths, $this->route->getPaths());
     }
 
-    /** @test */
+    #[Test]
     public function route_service_can_be_set(): void
     {
         $service = new Service('service-name');
@@ -72,7 +73,7 @@ class RouteTest extends TestCase
         $this->assertSame($service, $this->route->getService());
     }
 
-    /** @test */
+    #[Test]
     public function route_regex_priority_can_be_set(): void
     {
 
@@ -105,14 +106,14 @@ class RouteTest extends TestCase
         }
     }
 
-    /** @test */
+    #[Test]
     public function route_host_can_be_preserved(): void
     {
         $this->route->setPreserveHost(true);
         $this->assertTrue(true, $this->route->getPreserveHost());
     }
 
-    /** @test */
+    #[Test]
     public function route_get_data(): void
     {
         $host = 'https://hellochef.com';
